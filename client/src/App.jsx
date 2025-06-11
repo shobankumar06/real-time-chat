@@ -1,9 +1,9 @@
 import './App.css';
 import { useEffect, useRef, useState } from 'react';
 
-const clientId = crypto.randomUUID(); 
+const clientId = crypto.randomUUID();
 
-const socket = new WebSocket("wss://real-time-chat-production-c87f.up.railway.app");
+const ws = new WebSocket('wss://real-time-chat-production-c87f.up.railway.app');
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     ws.onmessage = async (event) => {
       const raw = typeof event.data === 'string' ? event.data : await event.data.text();
-      const msg = JSON.parse(raw); // { id, text }
+      const msg = JSON.parse(raw); 
 
       setMessages((prev) => [...prev, msg]);
     };
