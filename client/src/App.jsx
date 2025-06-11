@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const clientId = crypto.randomUUID(); 
 
-const ws = new WebSocket('ws://localhost:5000');
+const ws = new WebSocket('real-time-chat-production-c87f.up.railway.app');
 
 function App() {
   const [messages, setMessages] = useState([]);
