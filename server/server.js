@@ -10,6 +10,7 @@ wss.on('connection', ws => {
   console.log('New client connected');
 
   ws.on('message', message => {
+    // Broadcast message to all clients
     wss.clients.forEach(client => {
       if (client.readyState === WebSocket.OPEN) {
         client.send(message);
@@ -21,7 +22,7 @@ wss.on('connection', ws => {
     console.log('Client disconnected');
   });
 });
-const port = process.env.PORT || 5000;
-server.listen(port, () => {
-  console.log(`WebSocket server running on port ${port}`);
+
+server.listen(5000, () => {
+  console.log('WebSocket server running on port 5000');
 });
