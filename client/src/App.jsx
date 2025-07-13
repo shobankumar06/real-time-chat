@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const clientId = crypto.randomUUID();
 
-const ws = new WebSocket('https://real-time-chat-1-yic2.onrender.com');
+const ws = new WebSocket("wss://real-time-chat-1-yic2.onrender.com");
 
 
 function App() {
